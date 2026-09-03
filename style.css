@@ -62,18 +62,33 @@ body {
 .square {
     position: relative;
     min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+
     border: 0;
     border-right: 2px solid var(--line);
     border-bottom: 2px solid var(--line);
+
     background: var(--card);
     cursor: pointer;
+
     transition: background 0.15s ease, transform 0.12s ease;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px;
+
+    padding: clamp(4px, 1.5vw, 10px);
+
     user-select: none;
     -webkit-tap-highlight-color: transparent;
+
+    /* Text handling */
+    font-size: clamp(0.55rem, 2.5vw, 1rem);
+    line-height: 1.1;
+    text-align: center;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .square:nth-child(5n) {
@@ -118,8 +133,11 @@ body {
 .square.free {
     background: var(--free);
     font-weight: 900;
-    font-size: clamp(1rem, 4vw, 1.5rem);
-    letter-spacing: 0.08em;
+    font-size: clamp(0.7rem, 4vw, 1.5rem);
+    line-height: 1;
+    letter-spacing: 0.05em;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .square.free.marked {
